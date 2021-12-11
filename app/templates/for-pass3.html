@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+        {% block content %}
+
+        <!-- Hero Area Start-->
+        <div class="slider-area ">
+            <div class="single-slider slider-height2 d-flex align-items-center">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="hero-cap text-center">
+                                <h2>Reset Password</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Hero Area End-->
+        <!--================login_part Area =================-->
+        <section class="login_part section_padding ">
+            <div class="container">
+                <div class="row align-items-center">
+                    
+                    <div class="col-lg-6 col-md-6">
+                        <div class="login_part_form">
+                            <div class="login_part_form_iner">
+                                <h3>Welcome ! <br>
+                                    Change Password</h3><br>
+                                    <h6>{{msg}}</h6>
+                                <form class="row contact_form" action="{% url 'login' %}" method="POST">
+                                    {% csrf_token %}
+                                    <div class="col-md-12 form-group p_star">
+                                        <input type="password" class="form-control" name="password" placeholder="Enetr New Password" required="required" >
+                                    </div>
+                                    <div class="col-md-12 form-group p_star">
+                                        <input type="password" class="form-control" name="cpassword" placeholder="confirm Password" required="required" >
+                                    </div>
+                                    <div class="col-md-12 form-group">
+                                        <input type="hidden" name="email" value="{{email}}" id="">
+                                        <div class="creat_account d-flex align-items-center"></div>
+                                        <button type="submit" value="submit" class="btn_3" >
+                                            Update Password
+                                        </button>
+                                    </div>
+                                </form>
+                            <a href="{% url 'login' %}"><button class="btn_3" >
+                                Login
+                            </button></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--================login_part end =================-->
+        {% endblock content %}

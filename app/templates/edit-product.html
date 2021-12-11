@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+ <!-- Hero Area Start-->
+ <div class="slider-area ">
+    <div class="single-slider slider-height2 d-flex align-items-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="hero-cap text-center">
+                        <h2>Edit Product</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Hero Area End-->
+<!--================register_part Area =================-->
+<div class="container rounded bg-white mt-5">
+    <div class="row">
+        
+        <div class="col-md-8">
+            <div class="p-3 py-5">
+                {{msg}}
+                <form action="{% url 'edit-product' product.id %}" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                <div class="col-md-12 form-group p_star">
+                    <input type="text" class="form-control" name="title" value="{{product.title}}" placeholder="Product Title" required="required">
+                </div>
+                <div class="col-md-12 form-group p_star">
+                    <label for=""></label>
+                            <select name="category" value="{{product.cate}}" id="" class="form-control" required="required">
+                                <option value="#">Select Items</option>
+                                <option value="Rolex">Rolex</option>
+                                <option value="blancpain">Blancpain</option>
+                                <option value="iWatch">iWatch</option>
+                                <!-- <option value="imitations">Imitations</option> -->
+
+                            </select>
+                </div>
+                
+                <div class="col-md-12 form-group p_star">
+                    <textarea name="des" id="" cols="50" rows="5"  placeholder="Product Description">{{product.des}}</textarea>
+                </div>
+
+                <div class="col-md-12 form-group p_star">
+                    <label for="">Enter Amount </label>
+                    <input type="number" name="price"  value="{{product.price}}"  placeholder="Product Price">
+                </div>
+                <div class="col-md-12 form-group p_star">
+                        <label for="">Add Product Image </label>
+                    <input type="file"  value="{{prodect.Pic.url}}" name="pro_pic" placeholder="Add Product Image"/>
+                </div>
+                
+                <div class="col-md-12 form-group">
+                    <button class="btn_3" type="submit">Edit Product</button></div>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
